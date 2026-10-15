@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import { PrismaClient, CategoriaProduto } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -300,21 +299,7 @@ async function main() {
     console.log(`  ðŸŒ­ ${prod.nome} cadastrado.`);
   }
 
-  // 5. SEED: UsuÃ¡rio Admin
-  console.log('\nðŸ‘¤ Cadastrando UsuÃ¡rio Administrador...');
-  await prisma.usuario.upsert({
-    where: { email: 'admin@doghouse.com' },
-    update: {},
-    create: {
-      nome: 'Administrador Dog House',
-      email: 'admin@doghouse.com',
-      senha: bcrypt.hashSync('admin123', 10),
-      cargo: 'ADMIN',
-      ativo: true,
-    },
-  });
-
-  console.log('\nðŸŽ‰ Seed finalizado com sucesso!');
+  console.log('Seed finalizado com sucesso!');
 }
 
 main()

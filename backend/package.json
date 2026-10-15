@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "postinstall": "prisma skills sync || exit 0",
-        "dev": "ts-node src/server.ts",
+        "dev": "tsx watch src/server.ts",
         "build": "tsc"
     },
     "keywords": [],
@@ -29,6 +29,7 @@
         "@types/node": "^26.6.2",
         "prisma": "6.4.1",
         "ts-node": "^10.9.2",
+        "tsx": "^4.23.15",
         "typescript": "^7.0.2"
     },
     "prisma": {
